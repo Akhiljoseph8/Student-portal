@@ -1,0 +1,30 @@
+<div class="container-fluid p-5">
+    <h2>Students list</h2>
+    <div *ngIf="students.length>0; else elsedata">
+      <table class="table table-info table-striped">
+         <thead>
+            <tr>
+               <th>ID</th>
+               <th>Name</th>
+               <th>Dob</th>
+               <th></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr *ngFor="let i of students">
+               <td>{{i.id}}</td>
+               <td>{{i.name}}</td>
+               <td>{{i.dob}}</td>
+               <td>
+                <a routerLink="/detail/{{i.id}}" class="btn btn-secondary">View detail</a>
+               </td>
+            </tr>
+           
+         </tbody>
+      </table>
+    </div>
+    <ng-template #elsedata>
+      <h3 class="text-danger">no student</h3>
+    </ng-template>
+  
+</div>
